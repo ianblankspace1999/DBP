@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Particulars"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Value"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+          <!--      <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Sample mode"
+                        android:layout_weight="1"
+                        android:paddingLeft="16dp"/>
+
+                    <com.pmti.mrcos_devjpos.CustomView.EditTextAlwaysLast
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etSamplePayment"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"
+                        android:layout_marginBottom="3dp"
+                        android:inputType="numberDecimal"
+                        android:digits="0123456789.,"
+                        android:gravity="right"
+                        android:imeOptions="flagNoExtractUi|actionNext"/>
+                </LinearLayout>-->
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Basic Tax"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1" />
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:layout_width="0dp"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etBasicTax"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"
+                        android:layout_marginBottom="3dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                   >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Surcharge"
+                        android:layout_weight="1"
+                        android:paddingLeft="16dp"/>
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:layout_width="0dp"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etSurcharge"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"
+                        android:layout_marginBottom="3dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Interest"
+                        android:layout_weight="1"
+                        android:paddingLeft="16dp"/>
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:layout_width="0dp"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etInterest"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"
+                        android:layout_marginBottom="3dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Compromise"
+                        android:layout_weight="1"
+                        android:paddingLeft="16dp"/>
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:layout_width="0dp"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etCompromise"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Total Penalties"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1" />
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:id="@+id/etPenalties"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"
+                        android:enabled="false" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Total Amount Due"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1" />
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:layout_width="0dp"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etTotalAmtDue"
+                        android:enabled="false"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"
+                        android:layout_marginBottom="3dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Total Amount Paid"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1" />
+
+                    <com.pmti.mrcos_devjpos.customView.MoneyEditText2
+                        android:layout_width="0dp"
+                        style="@style/MyEditTextAmountPaymentDetail2"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etTotalAmtPaid"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/fab_margin">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TIN - Branch Code"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <utils.customview.TINEditText
+                        android:id="@+id/et_TIN"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:minEms="10"
+                        android:background="@drawable/bg_et"
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:imeOptions="flagNoExtractUi|actionDone"
+                        android:minHeight="40dp"
+                        android:includeFontPadding="false"
+                        android:layout_marginLeft="@dimen/fab_seven" />
+
+                    <Button
+                        android:id="@+id/searchBtn"
+                        style="@style/Button.Primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search"
+                        android:layout_marginRight="@dimen/fab_seven"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registered Name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="@dimen/fab_seven">
+
+
+                    <EditText
+                        android:id="@+id/et_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_et"
+                        android:minEms="10"
+                        android:singleLine="true"
+                        android:enabled="false"
+                        android:includeFontPadding="false"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZÑ-#'.1234567890"
+                        android:minHeight="40dp"
+                        />
+                    <!--android:imeOptions="flagNoExtractUi|actionNext"-->
+                    <!--android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZÑ-#'1234567890 "-->
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="@dimen/fab_seven">
+
+                    <EditText
+                        android:id="@+id/et_Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_et"
+                        android:minEms="10"
+                        android:imeOptions="flagNoExtractUi|actionDone"
+                        android:singleLine="true"
+                        android:enabled="false"
+                        android:includeFontPadding="false"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZÑ#.1234567890 "
+                        android:minHeight="40dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</RelativeLayout>

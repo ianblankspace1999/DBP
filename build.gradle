@@ -1,0 +1,45 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.0'
+        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // Sdk and tools
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.1'
+    minSdkVersion = 15
+    targetSdkVersion = 25
+
+//    App Dependencies
+    lombokVersion = '1.12.6'
+    retrofitVersion = '2.1.0'
+    gsonVersion = '2.1.0'
+    rxRetrofitVersion = '2.0.2'
+    rxjavaVersion = '1.1.8'
+    rxandroidVersion = '1.1.0'
+    glideVersion = '3.7.0'
+    okhttpVersion = '3.3.1'
+    butterknifeVersion = '8.5.1'
+    hallschemeVersion = '1.1.1'
+}
+

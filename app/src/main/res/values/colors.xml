@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--   <color name="colorAccent">#FF4081</color>-->
+
+    <color name="vp_title">#E0E0E0</color>
+
+
+    <color name="step_pager_previous_tab_color">#4433b5e5</color>
+    <color name="step_pager_selected_tab_color">#0157aa</color>
+    <color name="step_pager_selected_last_tab_color">#e70c06</color>
+    <color name="step_pager_next_tab_color">#10000000</color>
+
+    <!--<color name="step_pager_previous_tab_color">#4433b5e5</color>
+    <color name="step_pager_selected_tab_color">#ff0099cc</color>
+    <color name="step_pager_selected_last_tab_color">#ff669900</color>
+    <color name="step_pager_next_tab_color">#10000000</color>-->
+    <color name="bgcolor_default">#212121</color>
+
+    <color name="cl_state_true">#026aa1</color>
+    <color name="cl_state_false">#131a22</color>
+    <color name="cl_red">#e70c06</color>
+
+
+
+    <color name="cl_blue_selected">#7dbfff</color>
+    <color name="cl_green_selected">#49d644</color>
+
+    <color name="cl_blue_bg_button">#82c1ff</color>
+
+
+    <color name="cl_blue">#0157aa</color>
+    <color name="cl_gray">#d5d5d5</color>
+    <color name="cl_gray_disable">#d4d3d1</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="cl_nav">#57585a</color>
+
+
+    <color name="primary_blue">#011daf</color>
+    <color name="primary_blue_text">#233765</color>
+    <color name="primary">#212121</color>           <!-- color of toolbar -->
+    <color name="primary_dark">#616161</color>      <!-- color of status bar -->
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#009688</color>            <!-- tint of views -->
+    <color name="text_primary">#144b8e</color>
+    <color name="text_primary_dark">#19559e</color>
+    <color name="text_primary_darker">#001e71</color>
+    <color name="text_secondary">#727272</color>
+    <color name="text_red">#921a1d</color>
+    <color name="text_black">#2e3034</color>
+    <color name="text_black_light">#353535</color>
+    <color name="gray_alpha">#99727272</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="divider_conference">#c6c5c5</color>
+    <color name="text_icon">#FFFFFF</color>
+    <color name="activity_background">#eef0ef</color>
+    <color name="rating_tick_color">#feda24</color>
+
+    <color name="tab_unselected_color">#376cae</color>
+    <color name="tab_selected_color">@color/white</color>
+
+    <color name="button_primary_background">@color/text_primary</color>
+    <color name="button_primary_background_pressed">#FF1D4FD2</color>
+    <color name="button_primary_background_focused">#FF1D4FD2</color>
+    <color name="button_primary_text">@color/white</color>
+
+    <color name="button_danger_background">@color/text_red</color>
+    <color name="button_danger_background_pressed">#FFC42B2F</color>
+    <color name="button_danger_background_focused">#FFC42B2F</color>
+    <color name="button_danger_text">@color/white</color>
+
+    <color name="black">#1a1a1a</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="blue">#64b1b2</color>
+    <color name="green">#a9d397</color>
+    <color name="dark_green">#148058</color>
+    <color name="red">#df5858</color>
+    <color name="yellow">#fffa76</color>
+    <color name="dark_yellow">#dfdf32</color>
+    <color name="brown">#b18b67</color>
+    <color name="orange">#fdba54</color>
+    <color name="pink">#ffc0cb</color>
+    <color name="gold">#cf9f0f</color>
+    <color name="purple">#800080</color>
+    <color name="cream">#F9F1DC</color>
+</resources>

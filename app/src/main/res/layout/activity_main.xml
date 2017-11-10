@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/tool_bar"/>
+
+        <TextView
+            android:id="@+id/title_munc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_grey"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:paddingRight="@dimen/fab_margin"
+            android:text="RIZAL"
+            android:textColor="@color/cl_blue"
+            android:textStyle="bold"
+            tools:text="RIZAL"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            android:background="#363c5c"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/vp_title"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:id="@+id/tvPageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="TIN Verification"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black_gray"
+                android:textStyle="bold"/>
+
+            <include layout="@layout/layout_vp_strip"/>
+
+
+        </LinearLayout>
+
+        <utils.customview.CustomViewPager
+            android:id="@+id/vpRegistration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Button.Primary"
+                android:alpha=".5"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".5"
+                android:clickable="false"
+                android:text="BACK"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"/>
+
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_width="0dp"
+                style="@style/Button.Primary"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".5"
+                android:text="NEXT"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

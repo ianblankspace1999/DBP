@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DBP</string>
+
+
+
+    <string-array name="nav_titles">
+        <item>Change Password</item>
+        <item>News</item>
+        <item>Reports</item>
+        <item>Sync</item>
+        <item>Device Setting</item>
+        <item>Download LOVs</item>
+        <item>Sign Out</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

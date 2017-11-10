@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/fab_margin">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Remarks"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:id="@+id/etRemarks"
+                    android:background="@drawable/bg_et"
+                    android:gravity="bottom"
+                    android:imeOptions="actionDone"
+                    android:layout_marginTop="@dimen/fab_seven"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</RelativeLayout>

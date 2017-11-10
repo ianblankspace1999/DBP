@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:paddingTop="@dimen/spacing_small"
+              android:paddingBottom="@dimen/spacing_small"
+              android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/step_pager_tab_height"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+
+        <LinearLayout
+            android:id="@+id/vpStripOne"
+            android:orientation="vertical"
+            android:background="@color/cl_green_selected"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <LinearLayout
+            android:id="@+id/vpStripTwo"
+            android:layout_width="0dp"
+            android:background="@color/cl_gray_disable"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/vpStripThree"
+            android:layout_width="0dp"
+            android:background="@color/cl_gray_disable"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/vpStripFour"
+            android:layout_width="0dp"
+            android:background="@color/cl_gray_disable"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/vpStripFive"
+            android:layout_width="0dp"
+            android:background="@color/cl_gray_disable"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
