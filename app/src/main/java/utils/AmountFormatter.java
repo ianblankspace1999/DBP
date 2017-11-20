@@ -13,8 +13,8 @@ public class AmountFormatter {
     private static final int ZERO = 0;
     public static final String PESO_CURRENCY = "\u20B1";
     public static final String PHP = "Php";
-    public static String CURRENCY = PESO_CURRENCY;
-    public static String ZERO_AMOUNT = CURRENCY + "0.00";
+//    public static String CURRENCY = PESO_CURRENCY;
+    public static String ZERO_AMOUNT = PESO_CURRENCY + "0.00";
     private static NumberFormat canadaEnglish = NumberFormat
             .getCurrencyInstance(Locale.CANADA);
 
@@ -23,7 +23,7 @@ public class AmountFormatter {
 
     public static String convertTextAmountFormat(@NonNull Object object){
         return canadaEnglish.format(object)
-                .replaceAll("\\$", CURRENCY);
+                .replaceAll("\\$", PESO_CURRENCY);
     }
 
     public static String generateWordAmount(double amount){

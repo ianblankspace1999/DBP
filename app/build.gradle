@@ -17,6 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude "lib/arm64/libstlport_shared.so"
+    }
 }
 
 dependencies {
@@ -39,6 +46,11 @@ dependencies {
 //    Greendao
     compile 'de.greenrobot:greendao:2.1.0'
 
+//    JAR Libs
+    compile files('libs/jackson-annotations-2.5.0.jar')
+    compile files('libs/jackson-core-2.5.0.jar')
+    compile files('libs/jackson-databind-2.5.0.jar')
+    compile files('libs/pmti-ldonios-lib.jar')
 
 //    Rx
     compile "io.reactivex:rxandroid:$rootProject.ext.rxandroidVersion"

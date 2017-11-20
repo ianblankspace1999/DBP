@@ -24,6 +24,8 @@ import com.biz.pmti.dbp.fragments.FragmentTransactionSix;
 import com.biz.pmti.dbp.fragments.FragmentTransactionThree;
 import com.biz.pmti.dbp.fragments.FragmentTransactionTwo;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.vpStripFive)
     LinearLayout mVpStripFive;
 
+
+    public ArrayList<Object> mPaymentCollection = new ArrayList<>();
 
     private ClientViewPagerAdapter mClientViewPagerAdapter;
 

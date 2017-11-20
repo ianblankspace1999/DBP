@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:paddingRight="24dp"
+    android:paddingLeft="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cash Amount"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <!--<com.pmti.mrcos_devjpos.CustomView.MoneyEditText2
+        android:id="@+id/et_cash_amount"
+        style="@style/MyEditTextAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp" />-->
+
+
+
+    <EditText
+        android:id="@+id/et_cash_amount"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:digits="01234567890.,"
+        android:background="@drawable/bg_et"
+        android:imeOptions="flagNoExtractUi|actionDone"
+        android:hint="0.00"
+        android:inputType="number|numberDecimal">
+        <requestFocus/>
+
+    </EditText>
+
+
+
+
+    <!-- <com.pmti.mrcos_devjpos.CustomView.MoneyEditText
+         android:id="@+id/et_cash_amount"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="16dp"
+         android:digits="01234567890.,"
+         android:inputType="number|numberDecimal">
+         <requestFocus/>
+     </com.pmti.mrcos_devjpos.CustomView.MoneyEditText>
+ -->
+</LinearLayout>

@@ -72,7 +72,7 @@ public class MoneyEditText extends android.support.v7.widget.AppCompatEditText {
             try {
                 DecimalFormat formatter = new DecimalFormat("#,###,###.00");
                 doubleValue = Double.parseDouble(getText().toString().replace(',', '.'));
-                setText(AmountFormatter.CURRENCY + formatter.format(doubleValue));
+                setText(AmountFormatter.PESO_CURRENCY + formatter.format(doubleValue));
             } catch (NumberFormatException e) {
                 //Error
             }
