@@ -18,6 +18,7 @@ import com.biz.pmti.dbp.activities.MainActivity;
 import com.biz.pmti.dbp.dialog.DialogErro;
 import com.biz.pmti.dbp.dialog.DialogPaymentCash;
 import com.biz.pmti.dbp.dialog.DialogPaymentCheck;
+import com.biz.pmti.dbp.dialog.DialogPaymentDebit2;
 import com.biz.pmti.dbp.dialog.DialogPaymentMoneyOrder;
 import com.biz.pmti.dbp.models.Payment;
 import com.biz.pmti.dbp.models.modeofpayments.PaidTypeCash;
@@ -112,8 +113,8 @@ public class FragmentTransactionFour extends BaseFragment {
         if (position == 0)
             return;
 
-//        addPayment();
-//        spn_modeOfPayment.setSelection(0);
+        addPayment(mModeOfPaymentStr.get(position));
+        mSpnModeofpayment.setSelection(0);
     }
 
     @OnItemSelected(R.id.spn_typeofpayment)
@@ -128,6 +129,7 @@ public class FragmentTransactionFour extends BaseFragment {
 //        if (position >= 0)
 //            setTypeOfPayment(typeOfPayment.get(position));
     }
+
 
     public void onCancel() {
         mSpnModeofpayment.performClick();
@@ -182,56 +184,48 @@ public class FragmentTransactionFour extends BaseFragment {
     }
 
 
-    void addPayment() {
-//        String mode = modeOfPayment.get(spn_modeOfPayment.getSelectedItemPosition());
-//        Log.e("JAC mode", "" + mode);
-//        if (mode.equalsIgnoreCase("cash")) {
-//            new DialogPaymentCash().show(getChildFragmentManager(), "DIALOG");
-//        } else if (mode.equalsIgnoreCase("check")) {
-//
-//                    Bundle args = new Bundle();
-//                    args.putString("title", "LIST OF COLLECTION");
-//                    args.putString("message", "No Check list for this LC number.");
-//                    DialogFragment newFragment = new DialogErro();
-//                    newFragment.setArguments(args);
-//                    newFragment.show(getChildFragmentManager(), "dialog");
-//
-//
-//
-//
-//        } else if (mode.equalsIgnoreCase("debit")) {
-//            DialogPaymentDebit2 dialogPaymentDebit2 = DialogPaymentDebit2.newInstance();
-//            dialogPaymentDebit2.setPositiveButton("BACK", new DialogPaymentDebit2.OnButtonClickListener() {
-//                @Override
-//                public void onButtonClick() {
-//                    onCancel();
-//                }
-//            });
-//            dialogPaymentDebit2.setNegativeButton("NEXT", new DialogPaymentDebit2.OnButtonClickListener() {
-//                @Override
-//                public void onButtonClick() {
-//                    Log.e("JAC", "click");
-//                    DialogPaymentDebitNext dialogPaymentDebitNext = DialogPaymentDebitNext.newInstance();
-//                    if (!dialogPaymentDebitNext.isAdded()) {
-//                        dialogPaymentDebitNext.show(getChildFragmentManager(), "DIALOG");
-//                    }
-//                }
-//            });
-//
-//            if (!dialogPaymentDebit2.isAdded()) {
-//                dialogPaymentDebit2.show(getChildFragmentManager(), "DIALOG");
-//            }
-//            //new DialogPaymentDebit().show(getChildFragmentManager(), "DIALOG");
-//        } else if (mode.equalsIgnoreCase("money order") || mode.equalsIgnoreCase("mo")) {
-//
-//                    Bundle args = new Bundle();
-//                    args.putString("title", "LIST OF COLLECTION");
-//                    args.putString("message", "No Money Order list for this LC number.");
-//                    DialogFragment newFragment = new DialogErro();
-//                    newFragment.setArguments(args);
-//                    newFragment.show(getChildFragmentManager(), "dialog");
-//
-//        }
+
+
+    void addPayment(String mode) {
+
+        switch (mode) {
+            case "CASH" :
+                new DialogPaymentCash().show(getChildFragmentManager(), "DIALOG");
+                break;
+
+            case "CHECK" :
+                new DialogPaymentCheck().show(getChildFragmentManager(), "DIALOG");
+                break;
+
+            case "DEBIT" :
+                DialogPaymentDebit2 dialogPaymentDebit2 = DialogPaymentDebit2.newInstance();
+                dialogPaymentDebit2.setPositiveButton("BACK", new DialogPaymentDebit2.OnButtonClickListener() {
+                    @Override
+                    public void onButtonClick() {
+                        onCancel();
+                    }
+                });
+                dialogPaymentDebit2.setNegativeButton("NEXT", new DialogPaymentDebit2.OnButtonClickListener() {
+                    @Override
+                    public void onButtonClick() {
+                        Log.e("JAC", "click");
+//                        DialogPaymentDebitNext dialogPaymentDebitNext = DialogPaymentDebitNext.newInstance();
+//                        if (!dialogPaymentDebitNext.isAdded()) {
+//                            dialogPaymentDebitNext.show(getChildFragmentManager(), "DIALOG");
+//                        }
+                    }
+                });
+
+                if (!dialogPaymentDebit2.isAdded()) {
+                    dialogPaymentDebit2.show(getChildFragmentManager(), "DIALOG");
+                }
+                break;
+
+            case "MO" :
+                new DialogPaymentMoneyOrder().show(getChildFragmentManager(), "DIALOG");
+                break;
+        }
+
 
     }
 
@@ -248,11 +242,12 @@ public class FragmentTransactionFour extends BaseFragment {
         mTypeOfPaymentStr.add("FULL");
         mTypeOfPaymentStr.add("INSTALLMENT");
 
-        mTypeOfPaymentStr.add("-SELECT MODE OF PAYMENT-");
+        mModeOfPaymentStr.add("-SELECT MODE OF PAYMENT-");
         mModeOfPaymentStr.add("CASH");
         mModeOfPaymentStr.add("CHECK");
         mModeOfPaymentStr.add("DEBIT");
         mModeOfPaymentStr.add("MO");
+
     }
 
 }

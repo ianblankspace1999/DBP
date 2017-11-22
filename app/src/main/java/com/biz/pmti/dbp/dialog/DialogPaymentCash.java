@@ -3,8 +3,10 @@ package com.biz.pmti.dbp.dialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,45 +28,46 @@ import utils.customview.NumberTextWatcherForThousand;
 /**
  * Created by juanalfonzocarlos.le on 3/1/2016.
  */
-public class DialogPaymentCash extends DialogFragment {
+public class DialogPaymentCash extends BaseDialogFragment {
 
     public static final String TAG = "DialogPaymentCash";
     @BindView(R.id.et_cash_amount)
     EditText etAmount;
     Unbinder unbinder;
 
-    private MainActivity transaction;
-    private FragmentTransactionFour parent;
 
 
     private double amount;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setup("Cash", R.layout.dialog_payment_cash);
+        initUI();
+    }
 
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        parent = (FragmentTransactionFour) getParentFragment();
+    @Override
+    protected void submit(AlertDialog diag) {
+        super.submit(diag);
 
-//        transaction = (FragmentTransaction) parent.getParentFragment();
+        double total = 0;
+        if (!etAmount.getText().toString().equals("")) {
+            total = Double.parseDouble(etAmount.getText().toString().replace(",", "").replace(AmountFormatter.PESO_CURRENCY, ""));
+        }
 
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.dialog_payment_cash, null);
-        ButterKnife.bind(this, v);
+        amount = total;
 
-//        try{
-//            amount = getArguments().getDouble(PaymentDetail.AMOUNT);
-//            Log.e("JAC",""+amount);
-//            etAmount.setText(MoneyEditText2.format(amount));
-//           // etAmount.setText(MoneyEditText.format(amount));
-//        }catch (NullPointerException e){
-//            Log.e(TAG, "TAG "+PaymentDetail.AMOUNT+" in getArgs is null");
-//        }
+        //amount = ((MoneyEditText) etAmount).getDouble();
 
+//        if (amount > 0)
+            addValue(amount);
+//        else
+//            delete();
 
-//        try{
-//            etAmount.setText(MoneyEditText.format(transaction.revenueCollection.getPaidTypeCash().getPtcashAmount()));
-//        }catch (NullPointerException e){
-//            Log.e(TAG, "FROM MODEL : NULL");
-//
-//        }
+        diag.dismiss();
+    }
 
+    private void initUI() {
         etAmount.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -73,6 +76,7 @@ public class DialogPaymentCash extends DialogFragment {
                 if (hasFocus == false) {
                     try {
                         DecimalFormat formatter = new DecimalFormat("#,###,###.00");
+                        Log.i("result", "result: " + etAmount.getText().toString().replace(",", "").replace(AmountFormatter.PESO_CURRENCY, ""));
                         doubleValue = Double.parseDouble(etAmount.getText().toString().replace(",", "").replace(AmountFormatter.PESO_CURRENCY, ""));
                         etAmount.setText(AmountFormatter.PESO_CURRENCY + formatter.format(doubleValue));
 
@@ -87,53 +91,9 @@ public class DialogPaymentCash extends DialogFragment {
         etAmount.addTextChangedListener(new NumberTextWatcherForThousand(etAmount));
 
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-        alert
-                .setCancelable(false)
-                .setView(v)
-                .setTitle("Cash")
-
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        parent.onCancel();
-                    }
-                }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-
-                double total = 0;
-                if (!etAmount.getText().toString().equals("")) {
-                    total = Double.parseDouble(etAmount.getText().toString().replace(",", "").replace(AmountFormatter.PESO_CURRENCY, ""));
-                }
-
-                amount = total;
-
-                //amount = ((MoneyEditText) etAmount).getDouble();
-
-                if (amount > 0)
-                    addValue(amount);
-                else
-                    delete();
-
-//                        transaction.revenueCollection.setCashFlag("Y");
-            }
-        });
-
-        setCancelable(false);
-        AlertDialog alertDialog = alert.create();
-
-        if (getArguments() != null)
-            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "Delete", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    delete();
-                }
-            });
-
-        return alertDialog;
     }
 
-
-    void delete() {
+    protected void delete() {
         for (Object obj : transaction.mPaymentCollection) {
             if (obj instanceof PaidTypeCash) {
                 transaction.mPaymentCollection.remove(obj);
@@ -143,7 +103,7 @@ public class DialogPaymentCash extends DialogFragment {
 
 //        transaction.revenueCollection.setCashFlag("N");
 //        transaction.revenueCollection.setPaidTypeCash(null);
-        parent.updatePaymentMode();
+        parentFragment.updatePaymentMode();
     }
 
     void addValue(double amount) {
@@ -170,21 +130,8 @@ public class DialogPaymentCash extends DialogFragment {
         cash.setPtcashAmount(amount);
         transaction.mPaymentCollection.add(cash);
 //        transaction.revenueCollection.setPaidTypeCash(cash);
-        parent.updatePaymentMode();
+        parentFragment.updatePaymentMode();
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 }

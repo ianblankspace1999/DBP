@@ -94,6 +94,7 @@ public class DBPBase {
     }
 
     public static String formatDate(long mills){
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         Date d = new Date(mills);
         return sdf.format(d);
