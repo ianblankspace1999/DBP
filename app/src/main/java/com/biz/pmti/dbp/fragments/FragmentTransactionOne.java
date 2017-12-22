@@ -44,6 +44,8 @@ public class FragmentTransactionOne extends BaseFragment {
 
     Unbinder mUnbinder;
 
+
+
     private String mPrevTin = "";
 
     private String mStrName = "";
@@ -228,6 +230,11 @@ public class FragmentTransactionOne extends BaseFragment {
             DBPBase.dialogCustom(getContext(), getActivity(), "ERROR Prompt", "Invalid TIN number!");
             return false;
         }
+
+        parent.mTransactionModel.setTinNumber(mEtTIN.getText().toString());
+        parent.mTransactionModel.setName(mEtName.getText().toString());
+        parent.mTransactionModel.setAddress(mEtAddress.getText().toString());
+
         return true;
     }
 }

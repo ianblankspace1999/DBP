@@ -63,7 +63,7 @@ public class DialogPaymentCash extends BaseDialogFragment {
             addValue(amount);
 //        else
 //            delete();
-
+        hideSoftKeyboard();
         diag.dismiss();
     }
 

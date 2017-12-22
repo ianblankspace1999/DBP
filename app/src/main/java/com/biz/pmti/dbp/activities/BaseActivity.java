@@ -35,6 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
 
-        ((BaseApplication) getApplication()).getAppComponent().inject(this);
+//        ((BaseApplication) getApplication()).getAppComponent().inject(this);
     }
 }

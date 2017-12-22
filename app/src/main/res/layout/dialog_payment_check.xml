@@ -52,7 +52,7 @@
             android:id="@+id/et_bankdesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" android:focusable="false" android:editable="false"
+            android:layout_marginLeft="16dp"
             android:enabled="true" />
 
 

@@ -43,7 +43,7 @@ import utils.customview.NumberTextWatcherForThousand;
 /**
  * Created by juanalfonzocarlos.le on 3/1/2016.
  */
-public class DialogPaymentCheck extends BaseDialogFragment{
+public class DialogPaymentCheck extends BaseDialogFragment {
 
     private static final String TAG = "DialogPaymentCheck";
 
@@ -85,7 +85,6 @@ public class DialogPaymentCheck extends BaseDialogFragment{
         spnBankCode.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         spnBankCode.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, bankCodes));
         spnBankCode.setThreshold(1);
-
 
 
         spnBankCode.setOnTouchListener(new View.OnTouchListener() {
@@ -136,12 +135,11 @@ public class DialogPaymentCheck extends BaseDialogFragment{
         });
 
 
-
         if (list == null)
             list = new ArrayList<>();
 
 
-            model = new PaidTypeCheck();
+        model = new PaidTypeCheck();
 
         if (checkDate != 0) {
             tvCheckDate.setText(DBPBase.formatDate(checkDate));
@@ -182,8 +180,8 @@ public class DialogPaymentCheck extends BaseDialogFragment{
     void datePicker() {
         Calendar c = Calendar.getInstance();
 //        if (checkDate != 0)
-            c.setTimeInMillis(checkDate);
-        DialogFragmentUtil.showDatePicker(c, getContext());
+        c.setTimeInMillis(checkDate);
+        showDatePicker(c);
     }
 
     @Override
@@ -232,7 +230,6 @@ public class DialogPaymentCheck extends BaseDialogFragment{
         }
 
 
-
         model.setDbcCode(bankselection);
         model.setDbcAddress(etBankDesc.getText().toString());
         model.setPtchkNumber(etCheckNumber.getText().toString());
@@ -242,10 +239,10 @@ public class DialogPaymentCheck extends BaseDialogFragment{
 
         Log.i("--------", "ian---- save" + model.getPtchkDate());
 
-        if (!list.contains(model)) {
-            list.add(model);
+        if (!transaction.mPaymentCollection.contains(model)) {
+            transaction.mPaymentCollection.add(model);
+            parentFragment.updatePaymentMode();
         }
-
 
         diag.dismiss();
 
@@ -254,7 +251,6 @@ public class DialogPaymentCheck extends BaseDialogFragment{
 
 
     }
-
 
 
     @Override

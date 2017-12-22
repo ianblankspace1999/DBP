@@ -7,12 +7,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.biz.pmti.dbp.R;
 import com.biz.pmti.dbp.adapter.ClientViewPagerAdapter;
@@ -23,12 +25,15 @@ import com.biz.pmti.dbp.fragments.FragmentTransactionOne;
 import com.biz.pmti.dbp.fragments.FragmentTransactionSix;
 import com.biz.pmti.dbp.fragments.FragmentTransactionThree;
 import com.biz.pmti.dbp.fragments.FragmentTransactionTwo;
+import com.biz.pmti.dbp.models.TransactionModel;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import utils.FTPTransfer;
 import utils.customview.CustomViewPager;
 
 
@@ -72,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public ArrayList<Object> mPaymentCollection = new ArrayList<>();
+    public TransactionModel mTransactionModel;
 
     private ClientViewPagerAdapter mClientViewPagerAdapter;
 
@@ -85,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         ButterKnife.bind(this);
-
+        mTransactionModel = new TransactionModel();
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolBar != null) {
             setSupportActionBar(mToolBar);
@@ -116,9 +122,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void initialize() {
 
         mClientViewPagerAdapter = new ClientViewPagerAdapter(getSupportFragmentManager());
-        mClientViewPagerAdapter.addFragment(FragmentTransactionOne.newInstance());
-        mClientViewPagerAdapter.addFragment(FragmentTransactionTwo.newInstance());
-        mClientViewPagerAdapter.addFragment(FragmentTransactionThree.newInstance());
+//        mClientViewPagerAdapter.addFragment(FragmentTransactionOne.newInstance());
+//        mClientViewPagerAdapter.addFragment(FragmentTransactionTwo.newInstance());
+//        mClientViewPagerAdapter.addFragment(FragmentTransactionThree.newInstance());
         mClientViewPagerAdapter.addFragment(FragmentTransactionFour.newInstance());
         mClientViewPagerAdapter.addFragment(FragmentTransactionFive.newInstance());
         mClientViewPagerAdapter.addFragment(FragmentTransactionSix.newInstance());
@@ -247,13 +253,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.btnSignUp:
                 BaseFragment baseFragment = (BaseFragment) mClientViewPagerAdapter.getItem(mPagePosition);
+                Toast.makeText(getApplicationContext(), " Upload Started ...", Toast.LENGTH_SHORT).show();
+                new Thread() {
+                    public void run() {
+                        try {
+                            runOnUiThread(new Runnable() {
 
-                if (baseFragment.isValid()) {
-                    mVpRegistration.setCurrentItem(mPagePosition + 1);
-                }
+                                @Override
+                                public void run() {
+
+                                    FTPTransfer ftpTransfer = new FTPTransfer(getApplicationContext());
+                                    try {
+                                        ftpTransfer.downloadStart();
+                                    } catch (MalformedURLException e) {
+                                        e.printStackTrace();
+                                        Log.i("gumana", "errors1: " + e.toString());
+                                    }
+                                }
+                            });
+                            Thread.sleep(300);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
+//                if (baseFragment.isValid()) {
+//                    mVpRegistration.setCurrentItem(mPagePosition + 1);
+//                }
+
 
 //                mVpRegistration.setCurrentItem(mPagePosition + 1);
-
 
                 break;
         }

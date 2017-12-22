@@ -242,6 +242,14 @@ public class FragmentTransactionTwo extends BaseFragment {
             DBPBase.dialogCustom(getContext(), getActivity(), "ERROR Prompt", "Invalid Due Date!");
             return false;
         }
+
+        parent.mTransactionModel.setBirFormNumber(mBirFormNumbers.get(mSpnBirformnumber.getSelectedItemPosition()));
+        parent.mTransactionModel.setTaxType(mTaxTypes.get(mSpnTaxtype.getSelectedItemPosition()));
+        parent.mTransactionModel.setAccountCode(mAccountCodes.get(mSpnAccountcode.getSelectedItemPosition()));
+        parent.mTransactionModel.setPeriodCovered(periodCovered);
+        parent.mTransactionModel.setQuarter(QTR[mSpnQuarter.getSelectedItemPosition()]);
+        parent.mTransactionModel.setAssessment(mEtAssessment.getText().toString());
+        parent.mTransactionModel.setDueDate(dueDate);
         return true;
     }
 }

@@ -40,7 +40,7 @@ public class TransactionModel implements Serializable {
 
     @SerializedName("period_covered")
     @Expose
-    private String periodCovered;
+    private long periodCovered;
 
     @SerializedName("quarter")
     @Expose
@@ -50,29 +50,33 @@ public class TransactionModel implements Serializable {
     @Expose
     private String assessment;
 
+    @SerializedName("due_date")
+    @Expose
+    private long dueDate;
+
     @SerializedName("basic_tax")
     @Expose
-    private String basicTax;
+    private double basicTax;
 
     @SerializedName("sur_charge")
     @Expose
-    private String surCharge;
+    private double surCharge;
 
     @SerializedName("interest")
     @Expose
-    private String interest;
+    private double interest;
 
     @SerializedName("total_amount_paid")
     @Expose
-    private String totalAmountPaid;
+    private double totalAmountPaid;
 
     @SerializedName("penalties")
     @Expose
-    private String penalties;
+    private double penalties;
 
     @SerializedName("total_amount_due")
     @Expose
-    private String totalAmountDue;
+    private double totalAmountDue;
 
     @SerializedName("data")
     @Expose

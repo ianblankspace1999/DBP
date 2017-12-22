@@ -42,4 +42,10 @@ public class FragmentTransactionFive extends BaseFragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+
+    @Override
+    public boolean isValid() {
+        parent.mTransactionModel.setRemakrs(mEtRemarks.getText().toString());
+        return true;
+    }
 }

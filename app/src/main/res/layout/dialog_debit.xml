@@ -130,7 +130,6 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_et"
                     android:enabled="false"
-                    android:inputType="textPassword"
                     android:text="Juan Dela Cruz"
                     android:imeOptions="flagNoExtractUi|actionDone"
                     android:singleLine="true"

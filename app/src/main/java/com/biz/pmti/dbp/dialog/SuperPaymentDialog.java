@@ -39,7 +39,6 @@ public class SuperPaymentDialog extends DialogFragment {
     protected int position = -1;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +58,7 @@ public class SuperPaymentDialog extends DialogFragment {
 
     }
 
-    protected void setup(String title,int layoutResourceID){
+    protected void setup(String title, int layoutResourceID) {
         this.title = title;
         v = LayoutInflater.from(getContext()).inflate(layoutResourceID, null);
         ButterKnife.bind(this, v);
@@ -82,7 +81,7 @@ public class SuperPaymentDialog extends DialogFragment {
         AlertDialog alertDialog = alert.create();
 
 
-        if(isEditMode)
+        if (isEditMode)
             alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "Delete", onclick);
 
         alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", onclick);
@@ -100,7 +99,7 @@ public class SuperPaymentDialog extends DialogFragment {
 
         diag = (AlertDialog) getDialog();
 
-        if(diag!=null){
+        if (diag != null) {
             diag.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener(onClickNeutral);
             diag.getButton(DialogInterface.BUTTON_NEGATIVE).setOnClickListener(onClickNegative);
             diag.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(onClickPositive);
@@ -138,14 +137,16 @@ public class SuperPaymentDialog extends DialogFragment {
 
     protected void submit(AlertDialog diag) {
     }
+
     protected void delete() {
     }
-    private void updateListUI(){
+
+    private void updateListUI() {
         parentFragment.updatePaymentMode();
     }
 
 
-    protected void showDatePicker(final Calendar c){
+    protected void showDatePicker(final Calendar c) {
 
         DatePickerDialog dpd = new DatePickerDialog(getContext(),
                 new DatePickerDialog.OnDateSetListener() {
@@ -157,7 +158,7 @@ public class SuperPaymentDialog extends DialogFragment {
                     }
                 }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 
-            dpd.getDatePicker().setMaxDate(System.currentTimeMillis());
+        dpd.getDatePicker().setMaxDate(System.currentTimeMillis());
 
         // dpd.getDatePicker().setMaxDate(Calendar.getInstance().getTimeInMillis());
         dpd.show();
@@ -168,15 +169,15 @@ public class SuperPaymentDialog extends DialogFragment {
 
     }*/
 
-    protected void onDateChanged(Calendar c){
+    protected void onDateChanged(Calendar c) {
 
     }
 
-    protected void showToast(String message){
-        Toast.makeText( getContext(), message, Toast.LENGTH_SHORT).show();
+    protected void showToast(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
-    protected void showMessagePrompt(String title,String message){
+    protected void showMessagePrompt(String title, String message) {
         Bundle args = new Bundle();
         args.putString("title", title);
         args.putString("message", message);

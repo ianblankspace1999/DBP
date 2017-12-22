@@ -67,7 +67,7 @@ public class FragmentTransactionFour extends BaseFragment {
     LinearLayout mPaymentcontainer;
 
     Unbinder unbinder;
-    private MainActivity parent;
+
 
     private ArrayList<String> mMannerOfPaymentStr = new ArrayList<>();
     private ArrayList<String> mTypeOfPaymentStr = new ArrayList<>();
@@ -80,7 +80,6 @@ public class FragmentTransactionFour extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        parent = (MainActivity) getActivity();
         View view = inflater.inflate(R.layout.fragment_transactionfour, container, false);
         unbinder = ButterKnife.bind(this, view);
         initUI();
@@ -143,13 +142,13 @@ public class FragmentTransactionFour extends BaseFragment {
     }
 
 
-    List<Payment> payments;
+    ArrayList<Payment> payments;
 
     public void updatePaymentMode() {
 
         payments = new ArrayList<>();
         mPaymentcontainer.removeAllViews();
-
+        hideSoftKeyboard();
 
         for (int i = 0; i < parent.mPaymentCollection.size(); i++) {
             Object obj = parent.mPaymentCollection.get(i);
@@ -169,7 +168,9 @@ public class FragmentTransactionFour extends BaseFragment {
                 PaidTypeDebit paidTypeDebit = (PaidTypeDebit) obj;
                 payments.add(new Payment("DEBIT", paidTypeDebit.getPtdebitAmount(), ""));
             }
+
             if (obj instanceof PaidTypeMo) {
+                Log.i("duamaan", "dumaan");
                 PaidTypeMo paidTypeMo = (PaidTypeMo) obj;
                 payments.add(new Payment("MONEY ORDER", paidTypeMo.getPtmoAmount(), paidTypeMo.getPtmoNo(), i));
             }
@@ -250,4 +251,10 @@ public class FragmentTransactionFour extends BaseFragment {
 
     }
 
+    @Override
+    public boolean isValid() {
+        parent.mTransactionModel.setPaymentsCollection(payments);
+
+        return true;
+    }
 }

@@ -1,6 +1,8 @@
 package com.biz.pmti.dbp.dagger;
 
 
+import com.biz.pmti.dbp.rest.ServiceInterface;
+
 import java.io.IOException;
 
 import javax.inject.Named;
@@ -78,9 +80,9 @@ public class NetworkModule {
                 .build();
     }
 
-//    @Provides
-//    @Singleton
-//    TestInterface provideTestInterface(Retrofit retrofit) {
-//        return retrofit.create(TestInterface.class);
-//    }
+    @Provides
+    @Singleton
+    ServiceInterface provideTestInterface(Retrofit retrofit) {
+        return retrofit.create(ServiceInterface.class);
+    }
 }

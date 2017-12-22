@@ -348,23 +348,30 @@ public class FragmentTransactionThree extends BaseFragment implements MoneyEditT
 
     @Override
     public boolean isValid() {
-        return true;
-//        if (mEtTotalAmtPaid.getText().toString().equals("")) {
-//            dblTotalAmtPd = 0;
-//        } else {
-//            dblTotalAmtPd = MoneyEditText.toDouble(mEtTotalAmtPaid.getText().toString());
-//        }
-//
-//        if (dblTotalAmtPd <= 0) {
-////            showMessagePrompt(trans, getResources().getString(R.string.error_total_amount_paid_enter_amount));
-//            return false;
-//        }
-//
-//        if (dblTotalAmtPd > dblTotalAmtDue) {
-////            showMessagePrompt(trans, getResources().getString(R.string.error_total_amount_paid_amount_greater_than_amount_due));
-//            return false;
-//        }
 
+        if (mEtTotalAmtPaid.getText().toString().equals("")) {
+            dblTotalAmtPd = 0;
+        } else {
+            dblTotalAmtPd = MoneyEditText.toDouble(mEtTotalAmtPaid.getText().toString());
+        }
+
+        if (dblTotalAmtPd <= 0) {
+//            showMessagePrompt(trans, getResources().getString(R.string.error_total_amount_paid_enter_amount));
+            return false;
+        }
+
+        if (dblTotalAmtPd > dblTotalAmtDue) {
+//            showMessagePrompt(trans, getResources().getString(R.string.error_total_amount_paid_amount_greater_than_amount_due));
+            return false;
+        }
+        parent.mTransactionModel.setBasicTax(dblBasicTax);
+        parent.mTransactionModel.setSurCharge(dblSurcharge);
+        parent.mTransactionModel.setInterest(dblInterest);
+        parent.mTransactionModel.setPenalties(dblPenalties);
+        parent.mTransactionModel.setTotalAmountDue(dblTotalAmtDue);
+        parent.mTransactionModel.setTotalAmountPaid(dblTotalAmtPd);
+
+        return true;
     }
 
     @Override

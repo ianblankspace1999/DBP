@@ -20,6 +20,15 @@ public class PaidTypeMo implements Parcelable {
 	@JsonProperty("dateCreated") 							private long dateCreated 		= 0;
 	@JsonProperty("ptmoStatus") 							private String ptmoStatus 		= "";
 
+	private String ptchkDateStr     = "";
+
+	public String getPtchkDateStr() {
+		return ptchkDateStr;
+	}
+
+	public void setPtchkDateStr(String ptchkDateStr) {
+		this.ptchkDateStr = ptchkDateStr;
+	}
 
     public long getPtmoId() {
 		return ptmoId;
